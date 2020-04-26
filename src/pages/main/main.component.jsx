@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import _ from "lodash"
 
 import Table from "../../components/table/table.component"
@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css"
 
 import "./main.styles.scss"
 
-class MainPage extends React.Component {
+export default class MainPage extends Component {
   state = {
     columns: columns,
     data: data,
@@ -26,7 +26,7 @@ class MainPage extends React.Component {
     return _.orderBy(data, [sortColumn.path], [sortColumn.order])
   }
 
-  render() {
+  render = () => {
     const { columns, sortColumn } = this.state
     const data = this.getSortedData()
 
@@ -46,5 +46,3 @@ class MainPage extends React.Component {
     )
   }
 }
-
-export default MainPage
